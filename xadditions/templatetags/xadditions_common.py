@@ -18,3 +18,10 @@ def absurl(context, path):
         return context['request'].build_absolute_uri(path)
     else:
         return ''
+
+@register.assignment_tag(takes_context=True)
+def absurlas(context, path):
+    if 'request' in context:
+        return context['request'].build_absolute_uri(path)
+    else:
+        return ''
