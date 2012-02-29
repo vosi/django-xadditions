@@ -108,3 +108,22 @@ def qget(qstring, modifier):
     """ :type qstring: QueryDict"""
     if isinstance(qstring, QueryDict):
         return qstring.getlist(modifier)
+
+
+class GetUriNode(template.Node):
+    def __init__(self, url):
+        self.url = url
+    def render(self, context):
+        try:
+            url = template.Variable(self.url).resolve(context)
+        except template.VariableDoesNotExist:
+            url = ""
+        return context['request'].build_absolute_uri(url)
+
+
+@register.tag
+def get_uri(parser, token):
+    parts = token.split_contents()
+    if not len(parts) == 2:
+        raise template.TemplateSyntaxError("get_uri must be of the form: {% get_uri url %}")
+    return GetUriNode(parts[1])
