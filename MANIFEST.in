@@ -3,8 +3,10 @@ include CONTRIBUTORS
 include LICENSE
 recursive-include xadditions/locale *
 recursive-include xadditions/middleware *
+recursive-include xadditions/models *
 recursive-include xadditions/migrations *
 recursive-include xadditions/static *
 recursive-include xadditions/templates *
 recursive-include xadditions/templatetags *
+recursive-include xadditions/tools *
 recursive-include xadditions/views *
