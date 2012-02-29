@@ -12,16 +12,17 @@ def get_settings(name):
     except AttributeError:
         return ""
 
-@register.simple_tag(takes_context=True)
-def absurl(context, path):
-    if 'request' in context:
-        return context['request'].build_absolute_uri(path)
-    else:
-        return ''
 
-@register.assignment_tag(takes_context=True)
-def absurlas(context, path):
-    if 'request' in context:
-        return context['request'].build_absolute_uri(path)
-    else:
-        return ''
+@register.filter()
+def total(list, field):
+    return sum(getattr(d, field) for d in list)
+
+
+@register.filter()
+def joinby(value, key):
+    return ", ".join([getattr(c, key, 'empty') for c in value])
+
+
+@register.filter()
+def pk_in(pk, obj):
+    return pk in [o.pk for o in obj]
