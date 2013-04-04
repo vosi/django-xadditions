@@ -2,7 +2,7 @@ from setuptools import setup
 
 kwargs = {
     'name': 'django-xadditions',
-    'version': '0.1',
+    'version': '0.1.1',
     'description': 'Common django additions.',
     'author': 'Tartnskyi Vladimir',
     'author_email': 'fon.vosi@gmail.com',
