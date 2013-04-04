@@ -16,9 +16,4 @@ TODO
 COMPATIBILITY
 -------------
 
-* Django >= 1.3
-
-CHANGELOG
----------
-
-* 14.12.11 Initial alpha version
+* Django >= 1.5

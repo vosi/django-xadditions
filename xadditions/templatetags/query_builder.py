@@ -108,17 +108,3 @@ def qget(qstring, modifier):
     """ :type qstring: QueryDict"""
     if isinstance(qstring, QueryDict):
         return qstring.getlist(modifier)
-
-@register.simple_tag(takes_context=True)
-def abs_url(context, path):
-    if 'request' in context:
-        return context['request'].build_absolute_uri(path)
-    else:
-        return ''
-
-@register.assignment_tag(takes_context=True)
-def abs_url_as(context, path):
-    if 'request' in context:
-        return context['request'].build_absolute_uri(path)
-    else:
-        return ''
